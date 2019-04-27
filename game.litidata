@@ -109,6 +109,21 @@
    </layer>
    <objectgroup id="0" name="default">
     <object id="1" name="enter" type="SPAWNPOINT" x="240" y="408" width="40" height="48"/>
+    <object id="3" type="COLLISIONBOX" x="128" y="336" width="56" height="168">
+     <properties>
+      <property name="collisionType" value="STATIC"/>
+     </properties>
+    </object>
+    <object id="4" type="CREATURE" x="344" y="464" width="16" height="24">
+     <properties>
+      <property name="collisionValign" value="MIDDLE"/>
+      <property name="collisionboxHeightFactor" value="20.0"/>
+      <property name="collisionboxWidthFactor" value="16.0"/>
+      <property name="spawnDirection" value="LEFT"/>
+      <property name="spritesheetName" value="Jorge"/>
+      <property name="velocity" value="20"/>
+     </properties>
+    </object>
    </objectgroup>
   </map>
  </maps>
@@ -118,6 +133,12 @@
   </sprite>
   <sprite width="16" height="18" name="Dean-walk-left">
    <image>iVBORw0KGgoAAAANSUhEUgAAAEAAAAASCAYAAADrL9giAAAA4klEQVR42u2WsQ3DIBREKTNCSg+RWTJDyoyRsTxCRsgY6RxRINmID993h0IiI9EYv+M4fzAhHO1oxXY6T0up92ZVGhRvwR4RhlVpUHwLrokwrEqD9hAHH/N9udyum+4NAGVVGrSHOBiBXCQ9bwWAsioN2kOtbF7vJ7wFWqxKQ+EhpJdL3bMAlFVpKDyYIoyBvb+xHiGafOvUXO+lHvxXPdT2TOk09U7s5YfwkANWgq0FoPwQHqyS8ZSvgh/FQ7Ws2Pv8L/FhXTK70/sDfnO1RODEsjyqk/NwAGh6yi+IaHjm/wDnjXF3vhppmQAAAABJRU5ErkJggg==</image>
+  </sprite>
+  <sprite width="16" height="18" name="Jorge-idle-left">
+   <image>iVBORw0KGgoAAAANSUhEUgAAACAAAAASCAYAAAA6yNxSAAAAsklEQVR42mNgGIyAQ0LhPzZMN8tNMsKwYmIdQZEHQAof/LiAgYl1BMUeQDYA2eKOAwVgTIwDKPEATgNIcQAlHgAbAFKIbDEym9wQIMkB2AwgxQGUeABrIkJ2BLkhQLQD0A1BdgAxmin1AIZBsLgj2vXkegBdEhaX6BibIbjE0D2A1xO4Si9kDDIAW16mRC+GAbCgQubDXE/IclL1klWm01M/PB0g0/TUD09IyDQ99dMlBAA5hDDDtdBy2gAAAABJRU5ErkJggg==</image>
+  </sprite>
+  <sprite width="16" height="18" name="Jorge-walk-left">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAEAAAAASCAYAAADrL9giAAAA8ElEQVR42u2XzQ3CMAyFe2QEjgzBLMzAkTE6FiMwAmNwA6VSqtfERo4d8pCgktXf7yX2a5J2mv5bve32h6cUo3h68sfzSQxLElGebkB68P64VWFNogdPNQAFsOPz9bJESwJenmmAKhBNYGQBI/wikB7EjuOxpQNRnmmAKhBNYGQBI7w4iWASnkmslWcaUIlgAi3LmJdnG1AJ5bFjrl4HnmJAeTOPpTI0kU/wUgElXrtW8m9N0L6eMJKAtpYy+WjbG4H8quB5rp6l86P5aNtf/UPE5tdxjPtf4jeTiQfGJSnCe3VK3l0Ab/V6OujRsLT/ArzsXVZsBzY6AAAAAElFTkSuQmCC</image>
   </sprite>
   <sprite width="8" height="8" name="tileset">
    <image>iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABuElEQVR42u3aQU6EMBQAUJYewaWH8CyewaXH8FgewSN4DHeaTjIGG1ogtBToe0kjtcaZ4X8+n2aGYQcPj08/qXk4rjkG2gpB+Pr+/AvG1Pz59eU2csf3Ea/l1iXAyRIgDuqS3+XWJcDCANUe7x9v/wIez3NBlQA7JMDSAKwdcQKk5jVfP9eLxBdBfNxdAqSO59ZS6/efIeDjvx3P90jAqQCP56nmVAUoFICppEg1dDUrAI16gLkhARoK5Tg31pbZeISOPzdyt5qtcwlwwgRQATpNgBqVIE6A+LVrnM/cZ5UAjSrA3HsoEbQa/7PrHmCuMixZL5EASwMoAQ7eA6QCsUci6AEO0gOUKuGnCKwKUO4p4JKBP+pO5FX3AVK3HQlw8X2ALm4jJRKgdQ/QIgnU/0YVoEUgBH9lD1ByH2BNl7/lqhbNg1aAEs/63T4mXqEH2GvHTzQ3JEHtr4S7au0DcOSrv9bX0ZzhDiuBwHf8RCD4F3sqWLMPIPgdVwLB77gnEPzO9wecKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIOcXpZhu+/PiOmEAAAAASUVORK5CYII=</image>

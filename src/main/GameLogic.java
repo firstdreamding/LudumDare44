@@ -1,7 +1,11 @@
+package main;
+
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
+import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
+import entities.Jorge;
 
 public final class GameLogic {
 	private GameLogic() {
@@ -25,6 +29,7 @@ public final class GameLogic {
 				enter.spawn(Player.instance());
 			}
 		});
-
+		
+		CreatureMapObjectLoader.registerCustomCreatureType(Jorge.class);
 	}
 }
