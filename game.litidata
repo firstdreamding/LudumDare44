@@ -119,6 +119,7 @@
       <property name="collisionValign" value="MIDDLE"/>
       <property name="collisionboxHeightFactor" value="20.0"/>
       <property name="collisionboxWidthFactor" value="16.0"/>
+      <property name="hitpoints" value="10"/>
       <property name="spawnDirection" value="LEFT"/>
       <property name="spritesheetName" value="Jorge"/>
       <property name="velocity" value="20"/>
@@ -129,7 +130,7 @@
  </maps>
  <spriteSheets>
   <sprite width="16" height="18" name="Dean-idle-left">
-   <image>iVBORw0KGgoAAAANSUhEUgAAACAAAAASCAYAAAA6yNxSAAAAn0lEQVR42mNgGAU4AIeEwn9smC76cWkm1hCK9BPSTMgQSvWDDeg4UPDfJCMMBZPiAEr0gw0AaUA3BCZOjAMo0Y83CB/8uEBRFBCjH24ISDE2TGwipEQ/XkNwGUAo0SFHBQO1DcAX5NgSIwPVDUAyA6YHlycIhgDZBmDxCLGOp54BOLIkufoZKKkLqKGfATnYKQkBcvXDi1Vkmp766RICAKMPrnyHHtjCAAAAAElFTkSuQmCC</image>
+   <image>iVBORw0KGgoAAAANSUhEUgAAACAAAAASCAYAAAA6yNxSAAAA4ElEQVR42r2UMQ7CMAxFc4KeASEGRoS6ILoysTFwDe7B0gNyGCOncuqkbuTYBUtWW9X2/8+NGkI9gOXfIwqfh0tMowkTAHBxxxZMAKnh03Xpnp6VZlwAmWsSLs1Uhm0BsPh2WvEtAObY73oYn1fAMJwDK8AcKE5J0XICnQBT8e04pGwd4AEAdI/JnRdGpsL1oWaA6JiayQg3RO9r4h6AJPB+nVITG5bV/AggH1I6R2O1/4ATIFsLCKk6Q2aAUvxxP2RXlbofIEiiKhNcHOsFAB2EINayBUmwbYsrbtUGWvq/zoiI1trLa8oAAAAASUVORK5CYII=</image>
   </sprite>
   <sprite width="16" height="18" name="Dean-walk-left">
    <image>iVBORw0KGgoAAAANSUhEUgAAAEAAAAASCAYAAADrL9giAAAA4klEQVR42u2WsQ3DIBREKTNCSg+RWTJDyoyRsTxCRsgY6RxRINmID993h0IiI9EYv+M4fzAhHO1oxXY6T0up92ZVGhRvwR4RhlVpUHwLrokwrEqD9hAHH/N9udyum+4NAGVVGrSHOBiBXCQ9bwWAsioN2kOtbF7vJ7wFWqxKQ+EhpJdL3bMAlFVpKDyYIoyBvb+xHiGafOvUXO+lHvxXPdT2TOk09U7s5YfwkANWgq0FoPwQHqyS8ZSvgh/FQ7Ws2Pv8L/FhXTK70/sDfnO1RODEsjyqk/NwAGh6yi+IaHjm/wDnjXF3vhppmQAAAABJRU5ErkJggg==</image>

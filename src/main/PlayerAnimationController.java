@@ -18,6 +18,8 @@ public class PlayerAnimationController extends CreatureAnimationController<Playe
     if (this.getEntity().isDead()) 
     	return super.getCurrentAnimation();
     else {
+    	if (this.getEntity().getTick() <= 0) {
+    	}
     	return super.getCurrentAnimation();
     }
     

@@ -17,8 +17,6 @@ public final class PlayerInput {
 		Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0));
 		Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, e -> System.out.println("test"));
 		Input.mouse().onPressed(e -> {
-			System.out.println(Input.mouse().getMapLocation());
-
 			Player.instance().trythis();
 		});
 	}

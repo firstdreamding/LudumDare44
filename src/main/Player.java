@@ -6,6 +6,7 @@ import java.awt.Polygon;
 import java.awt.geom.Area;
 import java.awt.geom.Line2D;
 
+import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
@@ -26,6 +27,7 @@ import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 public class Player extends Creature implements IUpdateable, IRenderable {
 	public static final int MAX_ADDITIONAL_JUMPS = 1;
 	private boolean isAttack = true;
+	private int tick;
 
 	private static Player instance;
 	private Polygon p;
@@ -36,16 +38,17 @@ public class Player extends Creature implements IUpdateable, IRenderable {
 		// setup movement controller
 		this.addController(new KeyboardEntityController<>(this));
 		this.setController(EntityAnimationController.class, new PlayerAnimationController(this));
-		
+
 		Environment y = Game.world().getEnvironment("level1");
 		y.add(this, RenderType.UI);
-		
-		int[] xs = new int[]{0, 10, 10, 0};
-		int[] ys = new int[]{0, 0, 10, 10};
 
-		//create a polygon with these source points
+		int[] xs = new int[] { 0, 10, 10, 0 };
+		int[] ys = new int[] { 0, 0, 10, 10 };
+
+		// create a polygon with these source points
 		Polygon p = new Polygon(xs, ys, 4);
-		
+		tick = 0;
+
 		// TODO setup the player's abilities
 
 	}
@@ -60,10 +63,12 @@ public class Player extends Creature implements IUpdateable, IRenderable {
 
 	@Override
 	public void update() {
-		Environment e = Game.world().getEnvironment("level1");
-		// your source points
-		for (ICombatEntity x : e.findCombatEntities(new Area(new Line2D.Double(getX(), getY(), getX() + 50, getY())))) {
-			System.out.println("test");
+		tick++;
+
+		if (tick <= -10) {
+			setX(getX() + 1);
+		} else if (tick <= 0) {
+			setX(getX() - 1);
 		}
 	}
 
@@ -71,27 +76,64 @@ public class Player extends Creature implements IUpdateable, IRenderable {
 		return isAttack;
 	}
 
+	public int getTick() {
+		return tick;
+	}
+
 	public void trythis() {
-		Environment y = Game.world().getEnvironment("level1");
-		
-		int[] xs = new int[] { (int) Player.instance().getCenter().getX() - 10,
-				(int) Player.instance().getCenter().getX() + 10, (int) Input.mouse().getMapLocation().getX() + 10,
-				(int) Input.mouse().getMapLocation().getX() - 10 };
-		int[] ys = new int[] { (int) Player.instance().getCenter().getY() - 10,
-				(int) Player.instance().getCenter().getY() + 10, (int) Input.mouse().getMapLocation().getY() + 10,
-				(int) Input.mouse().getMapLocation().getY() - 10 };
-				
-		
+		if (tick > 0) {
+			Environment y = Game.world().getEnvironment("level1");
 
+			int d = 10;
 
-		// create a polygon with these source points
-		p = new Polygon(xs, ys, 4);
-		
+			double xd = Player.instance().getCenter().getX() - Input.mouse().getMapLocation().getX();
+			double xy = Player.instance().getCenter().getY() - Input.mouse().getMapLocation().getY();
 
-		for (ICombatEntity x : y.findCombatEntities(p)) {
-			if (x != Player.instance()) {
-				System.out.println("test");
+			if (xd == 0) {
+				if (xy >= 0) {
+					setFacingDirection(Direction.UP);
+				} else {
+					setFacingDirection(Direction.DOWN);
+				}
+			} else {
+				int slope = (int) (xy / xd);
+				if ((slope > 1 || slope < -1)) {
+					if (xy > 0) {
+						setFacingDirection(Direction.UP);
+					} else {
+						setFacingDirection(Direction.DOWN);
+					}
+				} else {
+					if (xd > 0) {
+						setFacingDirection(Direction.LEFT);
+					} else {
+						setFacingDirection(Direction.RIGHT);
+					}
+				}
 			}
+
+			int offX = (int) (d * Math.sin(Math.atan(xy / xd)));
+			int offY = (int) (d * Math.cos(Math.atan(xy / xd)));
+			int[] xs = new int[] { (int) Player.instance().getCenter().getX() - offX,
+					(int) Player.instance().getCenter().getX() + offX,
+					(int) Input.mouse().getMapLocation().getX() + offX,
+					(int) Input.mouse().getMapLocation().getX() - offX };
+			int[] ys = new int[] { (int) Player.instance().getCenter().getY() + offY,
+					(int) Player.instance().getCenter().getY() - offY,
+					(int) Input.mouse().getMapLocation().getY() - offY,
+					(int) Input.mouse().getMapLocation().getY() + offY };
+
+			// create a polygon with these source points
+			p = new Polygon(xs, ys, 4);
+
+			for (ICombatEntity x : y.findCombatEntities(p)) {
+				if (x != Player.instance()) {
+					System.out.println("test");
+					x.hit(10);
+				}
+			}
+
+			tick = -20;
 		}
 
 	}
